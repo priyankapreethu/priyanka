@@ -6,7 +6,7 @@ void input(int *a,int *b)
 }
 void sum(int n1,int n2,int *sum)
 {
-        sum=n1+n2;
+        *sum=n1+n2;
 }
 void output(int n1,int n2,int sum)
 {
@@ -18,4 +18,6 @@ int main()
         input(&n1,&n2);
         sum(n1,n2,&sum);
         output(n1,n2,sum);
-  }
+}
+~
+
