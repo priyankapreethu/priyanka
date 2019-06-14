@@ -10,6 +10,15 @@ void input(int *n,int *p)
                 p++;
         }
 }
+void sum(int n,int *p,int *res)
+{
+        for(int i=0;i<n;i++)
+        {
+                *res+=*p;
+                p++;
+        }
+        printf("%d",*res);
+}
 int main()
 {
         int *p,n,a[10],res;
@@ -17,9 +26,8 @@ int main()
         input(&n,p);
         for(int i=0;i<n;i++)
                 printf("%d",*(p++));
-        //sum(n,p,&res);
+        sum(n,p,&res);
         //output(n,p,res);
 }
 
-~
 
