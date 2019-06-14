@@ -25,8 +25,6 @@ int main()
         int *p,n,a[10],res=0;
         p=a;
         input(&n,p);
-        for(int i=0;i<n;i++)
-                printf("%d",*(p++));
         sum(n,p,&res);
         //output(n,p,res);
 }
