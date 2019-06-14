@@ -20,13 +20,21 @@ void sum(int n,int *p,int *res)
         }
         printf("%d",*res);
 }
+void output(int n,int *p,int res)
+{
+        for(int i=0;i<n-1;i++)
+        {
+                printf("%d",*p)
+                p++;
+        }
+        printf("%d=%d",*p,res);
+}
 int main()
 {
         int *p,n,a[10],res=0;
         p=a;
         input(&n,p);
         sum(n,p,&res);
-        //output(n,p,res);
+        output(n,p,res);
 }
-
 
