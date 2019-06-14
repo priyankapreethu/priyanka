@@ -24,7 +24,7 @@ void output(int n,int *p,int res)
 {
         for(int i=0;i<n-1;i++)
         {
-                printf("%d",*p)
+                printf("%d",*p);
                 p++;
         }
         printf("%d=%d",*p,res);
@@ -37,4 +37,3 @@ int main()
         sum(n,p,&res);
         output(n,p,res);
 }
-
