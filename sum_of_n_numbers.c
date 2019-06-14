@@ -15,13 +15,14 @@ void sum(int n,int *p,int *res)
         for(int i=0;i<n;i++)
         {
                 *res+=*p;
+                printf("p val=%d===%d",*p,*res);
                 p++;
         }
         printf("%d",*res);
 }
 int main()
 {
-        int *p,n,a[10],res;
+        int *p,n,a[10],res=0;
         p=a;
         input(&n,p);
         for(int i=0;i<n;i++)
