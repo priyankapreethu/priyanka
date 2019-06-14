@@ -1,22 +1,21 @@
 #include<stdio.h>
-void input(int *n,int *p)
+void input(int *a,int *b)
 {
-        printf("enter the size of array\n");
-        scanf("%d",n);
-        printf("enter %d elements\n",n);
-        for(int i=0;i<n;i++)
-        {
-                scanf("%d",p);
-                p++;
-        }
+        printf("enter two numbers to add\n");
+        scanf("%d%d",a,b);
+}
+void add(int n1,int n2,int *sum)
+{
+        *sum=n1+n2;
+}
+void output(int n1,int n2,int sum)
+{
+        printf("%d+%d=%d",n1,n2,sum);
 }
 int main()
 {
-        int *p,n,a[10],res;
-        p=a;
-        input(&n,p);
-        for(int i=0;i<n;i++)
-                printf("%d",p++);
-        //sum(n,p,&res);
-        //output(n,p,res);
+        int n1,n2,sum;
+        input(&n1,&n2);
+        add(n1,n2,&sum);
+        output(n1,n2,sum);
 }
