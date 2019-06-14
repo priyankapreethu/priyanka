@@ -14,10 +14,11 @@ void output(int n1,int n2,int sum)
 }
 int main()
 {
-        int n1,n2,sum;
+        int *n1,*n2,*sum;
         input(&n1,&n2);
         sum(n1,n2,&sum);
         output(n1,n2,sum);
 }
+
 ~
 
