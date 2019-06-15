@@ -1,4 +1,5 @@
 #include<stdio.h>
+/* Give descriptive names */:wq:
 struct frac
 {
         int n;
