@@ -1,0 +1,25 @@
+def getInput(l):
+    size=0;
+    size=int(input("enter the size"));
+    print(size)
+    for i in range(size):
+        val=int(input("number:"));
+        l.append(int(val))
+        print(l)
+    return l;
+def compute(a):
+    res=0;
+    for i in a:
+        res+=i;
+    return res;
+def output(res):
+    print("sum is :",res);
+def main():
+    res=0;
+    lst=[]
+    lst=getInput(lst)
+    res=compute(lst);
+    output(res);
+main()
+
+
