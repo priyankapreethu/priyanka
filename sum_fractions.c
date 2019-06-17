@@ -29,9 +29,17 @@ void getgcd( int a,int b,int * gcd)
 }
 void frac_sum(struct frac f1,struct frac f2,struct frac *res )
 {
-	int gcd;
+	int gcd,temp;
 	getgcd(f1.den,f2.den,&gcd);
 	printf("gcd is %d",gcd);
+	temp =f1.num*gcd;
+	temp/=f1.den;
+	res->num=f2.num*gcd;
+	res->num/=f2.den;
+	res->num+=temp;
+	res->den=(f1.den*f2.den)/gcd;
+	printf("%d/%d",res->num,res->den);
+
 }
 int main()
 {
