@@ -1,0 +1,25 @@
+from array import *
+def getInput(a):
+    size=0;
+    size=input("enter the size");
+    print(size)
+    for i in range(int(size)):
+        val=int(insert("number:"));
+        a.append(int(val))
+        print(a[i])
+    return a;
+def compute(a):
+    res=0;
+    for i in a:
+        res+=i;
+    return res;
+def output(res):
+    print("sum is :",res);
+def main():
+    res=0;
+    a=array('i',[])
+    a=getInput(a)
+    res=compute(a);
+    output(res);
+main()
+
