@@ -1,0 +1,17 @@
+def getInput(a,b):
+    a=int(input("enter first number"));
+    b=int(input("enter second number"));
+    return a,b;
+def compute(a,b,res):
+    res=a+b;
+    return res
+def output(a,b,res):
+    print(a,"+",b,"=",res);
+def main():
+    a=0;b=0;res=0;
+    a,b = getInput(a,b);
+    res=compute(a,b,res);
+    output(a,b,res);
+main();
+
+
