@@ -15,7 +15,7 @@ void getInput(struct frac *f,int *n)
 		f++;
 	}
 }
-int gcd(int a,int b)
+int computegcd(int a,int b)
 {
         int n1,n2;
         n1=a;
@@ -23,7 +23,7 @@ int gcd(int a,int b)
         if (n2 != 0)
         {
                 printf("%d,%d/%d",n1,n1,n2);
-                return getgcd(n2, n1%n2);
+                return computegcd(n2, n1%n2);
         }
         else
                 return n1;
@@ -33,11 +33,11 @@ int getGcd(struct frac *f,int n)
 {	int gcd;
 	gcd=f->den;
 	printf("%d",f->den);
-	for (i=0;i<n;i++)
+	for (int i=0;i<n;i++)
 	{
 		f++;
 		printf("f is %d  gcd is %d \n",gcd,f->den);
-		gcd=gcd(f->den,gcd);
+		gcd=computegcd(f->den,gcd);
 	}
 	return gcd;
 }
@@ -45,7 +45,7 @@ void compute(struct frac *f,int n)
 {
 	int gcd;
 	gcd=getGcd(f,n);
-	printf("%d",f->den);
+	printf("%d is the gcd",gcd);
 }	
 int main()
 {
