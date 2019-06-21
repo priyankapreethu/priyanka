@@ -21,44 +21,44 @@ int computegcd(int a,int b)
         n1=a;
         n2=b;
         if (n2 != 0)
-        {
-                printf("%d,%d/%d",n1,n1,n2);
-                return computegcd(n2, n1%n2);
-        }
+               return computegcd(n2, n1%n2);
         else
                 return n1;
 
 }
-int getGcd(struct frac *f,int n)
-{	int gcd;
-	gcd=f->den;
-	printf("%d",f->den);
-	for (int i=0;i<n;i++)
-	{
-		f++;
-		printf("f is %d  gcd is %d \n",gcd,f->den);
-		gcd=computegcd(f->den,gcd);
-	}
-	return gcd;
-}
-void compute(struct frac *f,int n)
+void compute(struct frac *f,int n,struct frac *res)
 {
-	int gcd;
-	gcd=getGcd(f,n);
-	printf("%d is the gcd",gcd);
-}	
+	int gcd,temp=1,temp2=0;
+	struct frac *f2=f;
+	for(int i=0;i<n;i++)
+	{
+		temp=temp*f->den;	
+		f++;
+	}
+	for(int i=0;i<n;i++)
+	{
+		f2->num=f2->num*(temp/f2->den);
+		temp2=temp2+f2->num;
+ 		f2++;
+	}
+	gcd=computegcd(temp,temp2);
+	res->num=temp2/gcd;
+	res->den=temp/gcd;
+}
+void output(struct frac res)
+{
+	   printf("%d/%d",res.num,res.den);
+
+}
 int main()
 {
 	int n;
 	struct frac f[10];
 	struct frac *f1;
+	struct frac res;
 	f1=f;
 	getInput(f1,&n);
-	/*for(int  i=0;i<n;i++)
-        {
-                printf("%d/%d\t",f1->num,f1->den);
-                f1++;
-        }*/
-	compute(f1,n);
+	compute(f1,n,&res);
+	output(res);
 	return 0;
 }
