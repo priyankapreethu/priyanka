@@ -4,12 +4,10 @@ struct frac
 	int num;
 	int den;
 };
-void getInput(struct frac *f,int *n)
+void getInput(int n,struct frac f[])
 {
-	printf("enter the number of fractions\n");
-	scanf("%d",n);
-	printf("enter the %d  fractions\n",*n);
-	for(int  i=0;i<*n;i++)
+	printf("enter the %d  fractions\n",n);
+	for(int  i=0;i<n;i++)
 	{
 		scanf("%d %d",&f->num,&f->den);
 		f++;
@@ -26,7 +24,7 @@ int computegcd(int a,int b)
                 return n1;
 
 }
-void compute(struct frac *f,int n,struct frac *res)
+void compute(int n,struct frac f[],struct frac *res)
 {
 	int gcd,temp=1,temp2=0;
 	struct frac *f2=f;
@@ -53,12 +51,12 @@ void output(struct frac res)
 int main()
 {
 	int n;
-	struct frac f[10];
-	struct frac *f1;
-	struct frac res;
-	f1=f;
-	getInput(f1,&n);
-	compute(f1,n,&res);
+	printf("enter the number of fractions\n");
+        scanf("%d",&n);
+	struct frac f[n];
+        struct frac res;
+	getInput(n,f);
+	compute(n,f,&res);
 	output(res);
 	return 0;
 }
