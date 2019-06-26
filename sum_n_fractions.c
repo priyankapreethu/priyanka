@@ -31,7 +31,6 @@ void compute(int n,struct frac f[],struct frac *res)
 		temp=temp*f[i].den;
 
 	}
-	printf("temp=%d/n",temp);
 	for(int i=0;i<n;i++)
 	{
 		f[i].num=f[i].num*(temp/f[i].den);
@@ -41,9 +40,13 @@ void compute(int n,struct frac f[],struct frac *res)
 	res->num=temp2/gcd;
 	res->den=temp/gcd;
 }
-void output(struct frac res)
+void output(int n,struct frac f[],struct frac res)
 {
-	   printf("%d/%d",res.num,res.den);
+	for(int i=0;i<n-1;i++)
+	{
+		printf("%d/%d + ",f[i].num,f[i].den);
+	}
+	printf("%d/%d=%d/%d",f[n-1].num,f[n-1].den,res.num,res.den);
 
 }
 int main()
@@ -55,6 +58,6 @@ int main()
         struct frac res;
 	getInput(n,f);
 	compute(n,f,&res);
-	output(res);
+	output(n,f,res);
 	return 0;
 }
