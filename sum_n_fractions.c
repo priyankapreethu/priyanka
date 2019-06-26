@@ -9,8 +9,7 @@ void getInput(int n,struct frac f[])
 	printf("enter the %d  fractions\n",n);
 	for(int  i=0;i<n;i++)
 	{
-		scanf("%d %d",&f->num,&f->den);
-		f++;
+		scanf("%d %d",&f[i].num,&f[i].den);
 	}
 }
 int computegcd(int a,int b)
@@ -27,17 +26,16 @@ int computegcd(int a,int b)
 void compute(int n,struct frac f[],struct frac *res)
 {
 	int gcd,temp=1,temp2=0;
-	struct frac *f2=f;
 	for(int i=0;i<n;i++)
 	{
-		temp=temp*f->den;	
-		f++;
+		temp=temp*f[i].den;
+
 	}
+	printf("temp=%d/n",temp);
 	for(int i=0;i<n;i++)
 	{
-		f2->num=f2->num*(temp/f2->den);
-		temp2=temp2+f2->num;
- 		f2++;
+		f[i].num=f[i].num*(temp/f[i].den);
+		temp2=temp2+f[i].num;
 	}
 	gcd=computegcd(temp,temp2);
 	res->num=temp2/gcd;
