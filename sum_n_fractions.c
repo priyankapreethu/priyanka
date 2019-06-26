@@ -6,7 +6,7 @@ struct frac
 };
 void getInput(int n,struct frac f[])
 {
-	printf("enter the %d  fractions\n",n);
+	printf("enter the %dd  fractions\n",n);
 	for(int  i=0;i<n;i++)
 	{
 		scanf("%d %d",&f[i].num,&f[i].den);
@@ -29,12 +29,10 @@ void compute(int n,struct frac f[],struct frac *res)
 	for(int i=0;i<n;i++)
 	{
 		temp=temp*f[i].den;
-
 	}
 	for(int i=0;i<n;i++)
 	{
-		f[i].num=f[i].num*(temp/f[i].den);
-		temp2=temp2+f[i].num;
+		temp2+=f[i].num*(temp/f[i].den);
 	}
 	gcd=computegcd(temp,temp2);
 	res->num=temp2/gcd;
