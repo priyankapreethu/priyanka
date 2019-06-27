@@ -11,11 +11,11 @@ struct rectangle
 void getInput(int n,struct rectangle P[])
 {
 	int i,j;
-	for(i=0;i<n;i++);
+	for(i=0;i<n;i++)
 	{
 		for(j=0;j<3;j++)
 		{
-			scanf("%d%d",P[i].v[j].x,P[i].v[j].y);
+			scanf("%f%f",&P[i].v[j].x,&P[i].v[j].y);
 		}
 	}
 }
