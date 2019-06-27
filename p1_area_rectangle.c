@@ -4,13 +4,18 @@ struct vert
 	float x;
 	float y;
 };
-void getInput(int n,struct vert P[][])
+struct rectangle
 {
-	for(int i=0;i<n;i++);
+	struct vert v[3];
+};
+void getInput(int n,struct rectangle P[])
+{
+	int i,j;
+	for(i=0;i<n;i++);
 	{
-		for(int j=0;j<n;j++)
+		for(j=0;j<3;j++)
 		{
-			scanf("%d%d",P[i][j].x,P[i][j].y);
+			scanf("%d%d",P[i].v[j].x,P[i].v[j].y);
 		}
 	}
 }
@@ -19,6 +24,6 @@ int main()
 	int n;
 	printf("enter the number of rectangles\n");
 	scanf("%d",&n);
-	struct vert P[n][3];
+	struct rectangle P[n];
 	getInput(n,P);
 }
