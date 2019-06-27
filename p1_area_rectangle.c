@@ -19,6 +19,11 @@ void getInput(int n,struct rectangle P[])
 		}
 	}
 }
+
+void compute(int n,struct rectangle P[])
+{
+	
+}
 int main()
 {
 	int n;
@@ -26,4 +31,5 @@ int main()
 	scanf("%d",&n);
 	struct rectangle P[n];
 	getInput(n,P);
+	compute(n,P);
 }
