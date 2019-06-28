@@ -20,36 +20,34 @@ void getInput(int n,struct rectangle P[n])
 		}
 	}
 }
-float largest(float n1,float n2,float n3)
+void smallest(float n1,float n2,float n3,float *s1,float *s2)
 {
 	if(n1>n2&&n1>n3)
-		return n1;
-	else if(n2>n3&&n2>n1)
-		return n2;
+	{
+		*s1=n2;
+		*s2=n3;
+	}
+	else if(n2>n3)
+	{
+		*s1=n1;
+		*s2=n3;
+	}
 	else 
-		return n3;
+	{
+		*s1=n1;
+		*s2=n2;
+	}
 }
-void compute(int n,struct rectangle P[],float area[n])
+void compute(int n,struct rectangle P[n],float area[n])
 {
-	float d1,d2,d3;
+	float d1,d2,d3,s1,s2;
 	for(int i=0;i<n;i++)
 	{
 		d1=sqrt(((P[i].v[0].x-P[i].v[1].x)*(P[i].v[0].x-P[i].v[1].x))+((P[i].v[0].y-P[i].v[1].y)*(P[i].v[0].y-P[i].v[1].y)));
                 d2=sqrt(((P[i].v[1].x-P[i].v[2].x)*(P[i].v[1].x-P[i].v[2].x))+((P[i].v[1].y-P[i].v[2].y)*(P[i].v[1].y-P[i].v[2].y)));
                 d3=sqrt(((P[i].v[0].x-P[i].v[2].x)*(P[i].v[0].x-P[i].v[2].x))+((P[i].v[0].y-P[i].v[2].y)*(P[i].v[0].y-P[i].v[2].y)));
-		float large =largest(d1,d2,d3);
-		if(large==d1)
-		{		
-			area[i]=d2*d3;
-		}
-		else if(large==d2)
-		{
-			area[i]=d1*d3;
-		}
-		else
-		{
-			area[i]=d1*d2;
-		}
+		smallest(d1,d2,d3,&s1,&s2);
+		area[i]=s1*s2;
 	}
 }
 void output(int n,struct rectangle P[n],float area[n])
@@ -61,7 +59,7 @@ void output(int n,struct rectangle P[n],float area[n])
 		{
 			printf("(%0.1f,%0.1f),",P[i].v[j].x,P[i].v[j].y);
 		}
-		printf(" is %0.2f\n",area[i]);
+		printf(" is %0.1f\n",area[i]);
 	}
 }
 int main()
