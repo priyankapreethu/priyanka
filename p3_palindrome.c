@@ -12,11 +12,10 @@ void getinput(int n,struct palindrome p[n])
 {
 	for(int i=0;i<n;i++)
 	{
-		printf("enter the length\n");
-		scanf("%d",&p[i].len);
-		printf("%d-->size",p[i].len);
-		for(int j=0;j<p[i].len;j++)
-			scanf("%c",&p[i].str[j]);	
+		printf("enter the string\n");
+		scanf("%s",p[i].str);
+		p[i].len=sizeof(p[i].str);
+		printf("\n%s-->%d",p[i].str,p[i].len);
 	}
 }
 void compute(int n,struct palindrome p[n],struct res_str r[n])
