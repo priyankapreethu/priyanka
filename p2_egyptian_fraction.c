@@ -1,14 +1,14 @@
 #include<stdio.h>
+#include<stdlib.h>
 struct egyptian_fract
 {
 	int m;
-	int d[10];
+	int *d;
 };
 struct res_fraction
 {
 	int num;
 	int den;
-
 };
 void getInput(int n,struct egyptian_fract frac[n])
 {
@@ -16,6 +16,7 @@ void getInput(int n,struct egyptian_fract frac[n])
 	{
 		printf("enter how many unit fractions in %d instance\n",i+1);
 		scanf("%d",&frac[i].m);
+		frac[i].d=(int *)malloc(frac[i].m*sizeof(int));
 		for(int j=0;j<frac[i].m;j++)
 		{
 			scanf("%d",&frac[i].d[j]);
@@ -64,6 +65,11 @@ void output(int n,struct egyptian_fract frac[n],struct res_fraction r[n])
 		printf("=%d/%d\n",r[i].num,r[i].den);
 	}
 }
+void freeresource(int n,struct egyptian_fract frac[n])
+{
+	for(int i=0;i<n;i++)
+		free(frac[i].d);
+}
 int main()
 {
 	int n;
@@ -74,5 +80,6 @@ int main()
 	getInput(n,frac);
 	compute(n,frac,r);
 	output(n,frac,r);
+	freeresource(n,frac);
 	return 0;
 }

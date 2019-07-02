@@ -14,7 +14,9 @@ void getinput(int n,struct palindrome p[n])
 	{
 		printf("enter the length\n");
 		scanf("%d",&p[i].len);
-		scanf("%s",p[i].str);	
+		printf("%d-->size",p[i].len);
+		for(int j=0;j<p[i].len;j++)
+			scanf("%c",&p[i].str[j]);	
 	}
 }
 void compute(int n,struct palindrome p[n],struct res_str r[n])
