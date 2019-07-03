@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 struct palindrome
 {
 	int len;
@@ -14,8 +15,8 @@ void getinput(int n,struct palindrome p[n])
 	{
 		printf("enter the string\n");
 		scanf("%s",p[i].str);
-		p[i].len=sizeof(p[i].str);
-		printf("\n%s-->%d",p[i].str,p[i].len);
+		p[i].len=strlen(p[i].str);
+		printf("%s-->%d\n",p[i].str,p[i].len);
 	}
 }
 void compute(int n,struct palindrome p[n],struct res_str r[n])
