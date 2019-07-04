@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 struct palindrome
 {
 	int len;
-	char str[25];
+	char *str;
 };
 struct res_str
 {
@@ -13,16 +14,17 @@ void getinput(int n,struct palindrome p[n])
 {
 	for(int i=0;i<n;i++)
 	{
+		printf("enter the size of an string\n");
+		scanf("%d",&p[i].len);
+		p[i].str=(char *)malloc((p[i].len+1)*sizeof(char));
 		printf("enter the string\n");
 		scanf("%s",p[i].str);
-		p[i].len=strlen(p[i].str);
 		printf("%s-->%d\n",p[i].str,p[i].len);
 	}
 }
 void compute(int n,struct palindrome p[n],struct res_str r[n])
 {
-	printf("compute method");
-
+	printf("compute method\n");
 }
 void output(int n,struct palindrome p[n])
 {
