@@ -8,7 +8,7 @@ struct palindrome
 };
 struct res_str
 {
-	char rstr[25][25];
+	char rstr[25];
 };
 void getinput(int n,struct palindrome p[n])
 {
@@ -22,9 +22,31 @@ void getinput(int n,struct palindrome p[n])
 		printf("%s-->%d\n",p[i].str,p[i].len);
 	}
 }
+void string_reverse(int n,char temp[])
+{
+	char temp2[30];
+	printf("%d  len",n);
+	int end=n-1;
+	for(int i=0;i<n;i++)
+	{
+		temp2[i]=temp[end];
+		printf("%s  ",temp2);
+		end--;
+	}
+	printf("%s ===%s",temp2,temp);
+	if(strcmp(temp,temp2)==0)
+		printf("%s is palindrome",temp);
+	else
+		printf("%s is not a palindrome",temp);
+	return;
+}
 void compute(int n,struct palindrome p[n],struct res_str r[n])
 {
 	printf("compute method\n");
+	for(int i=0;i<n;i++)
+	{
+		string_reverse(p[i].len,p[i].str);
+	}
 }
 void output(int n,struct palindrome p[n])
 {
@@ -45,3 +67,4 @@ int main()
 	output(n,p);
 	return 0;
 }
+
